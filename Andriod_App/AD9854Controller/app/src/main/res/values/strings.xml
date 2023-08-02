@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AD9854Controller</string>
+    <string name="tv_one">你好QQ老板</string>
+    <string name="tv_two">我是按钮</string>
+</resources>

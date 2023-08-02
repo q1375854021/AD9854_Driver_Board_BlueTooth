@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--LinearLayout相当于一个容器，其它空间都放到这里面来-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!-- layout_width       可以写match_parent 和容器宽度一样
+                            可以写wrap_content，自动分配字符宽度
+                            也可以直接写数字，200dp
+         layout_height      同layout_width
+         id                 控件的id，类似于名字,可以给java代码获取到这个控件
+         text               文本内容
+         Color              文本颜色，#加八位数字  前面两位代表透明度，00代表纯透明，FF代表不透明，后面六位中每两位代表红绿蓝
+         textStyle          字体风格，加粗，斜体等
+         textSize           字体大小，单位一般是sp
+         background         TextView的背景，可以是颜色，可以是图片
+         gravity            内容的对齐方向，比如center正中间  center_horizontal 水平居中
+
+        实际上这个text字符串这种都是资源，一般不能写在这里，应当写在src/main/res/values下的string里面，颜色就写在color里面
+        然后引用字符串的时候就用@String/xxx, 就可以了。颜色也是如此
+         -->
+
+
+    <!-- Button按钮控件
+       layout_width和layout_height，  宽和高，没什么解释的
+       text                          按钮的文本
+       background                    背景，但是好像修改完没有效果，应当在themes.xml中修改一下
+                                     <style name="Base.Theme.AD9854Controller" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+                                     修改完themes 背景色就可以了,如果要实现点一下变一下颜色，需要在res/drawable下新建文件进行编写
+                                     引用的时候就需要引用drawable文件
+    -->
+
+    <!--
+        ?attr/actionBarSize         意思就是和系统的actionBarSize一样
+        navigationIcon              就是一个图标
+        titleTextColor              Title的颜色
+        titleMarginStart            标题距离左边的距离
+    -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/DoderBlue"
+
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="AD9854控制器"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单频输出"
+        android:textSize="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hz"
+        android:textSize="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="200dp"
+        android:textStyle="bold"
+        />
+
+
+    <EditText
+        android:id="@+id/EditText_SingleTone_Amplitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="60dp"
+        android:hint="信号幅度"
+        android:inputType="number"
+        android:text="4095"/>
+
+
+
+    <EditText
+        android:id="@+id/EditText_SingleTone_Frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="信号频率"
+        android:inputType="number"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="100dp"
+        android:width="100dp"
+        android:text="10000000"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择功能"
+        android:textSize="20dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+    <Spinner
+        android:id="@+id/Spinner_Config_Func"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="600dp"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="蓝牙目标"
+        android:textSize="20dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+    <Spinner
+        android:id="@+id/Spinner_BlueTooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="650dp"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="640dp"
+        android:text="发送"
+        android:background="@color/DoderBlue"/>
+
+</RelativeLayout>
