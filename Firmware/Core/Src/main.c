@@ -105,6 +105,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 	AD9854_Init();                //AD9854配置初始化
+	AD9854_SetSine(1000000,4095);      //默认输出1MHz满幅正弦波
   /* USER CODE END 2 */
 
   /* Infinite loop */

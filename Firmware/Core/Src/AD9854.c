@@ -622,13 +622,13 @@ uint8_t AD9854_Uartdata_Analysis(struct Uart_Data_Struc *uart_data_struc)
 {
 	uint8_t current_index=0;                        //用于标志目前读取的串口位置
 	uint8_t temp_i=0;                               //用于For循环
+	memset(uart_data_struc,0,sizeof(*uart_data_struc));        //清零结构体，防止移位赋值的时候出现问题
 	if(USART1_Data_Recv[current_index]==0x00)             //没有收到数据
 		return 0;               
 	else if(USART1_Data_Recv[current_index]!=0x55)        //收到数据但不是0x55
 		return 1;    //协议头出错
 	else ;
 	current_index++;         //第1部分   命令
-	memset(uart_data_struc,0,sizeof(*uart_data_struc));        //清零结构体，防止移位赋值的时候出现问题
 	uart_data_struc->cmd = USART1_Data_Recv[current_index];    // 把cmd存起来
 	current_index++;        //第2部分，到数据部分了
 	
